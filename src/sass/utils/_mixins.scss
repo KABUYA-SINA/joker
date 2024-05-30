@@ -1,0 +1,46 @@
+@mixin mobile {
+    @media screen and (min-width: map-get($breakpoints, mobile)) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: map-get($breakpoints, tablet)) {
+        @content;
+    }
+}
+
+@mixin ordi {
+    @media screen and (min-width: map-get($breakpoints, ordi)) {
+        @content;
+    }
+}
+
+@mixin largeOrdi {
+    @media screen and (min-width: map-get($breakpoints, largeOrdi)) {
+        @content;
+    }
+}
+
+@mixin xLarge {
+    @media screen and (min-width: map-get($breakpoints, xLarge)) {
+        @content;
+    }
+}
+
+@mixin navLink {
+    position: relative;
+    &::after {
+        content: "";
+        height: 4px;
+        width: 0;
+        background-color: #880808;
+        position: absolute;
+        border-radius: 10px;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-animation: anim 0.3s ease forwards;
+        animation: anim 0.6s ease forwards;
+    }
+}

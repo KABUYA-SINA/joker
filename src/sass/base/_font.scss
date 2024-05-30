@@ -1,0 +1,28 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+
+.main-about{
+    h2{
+        @include ordi{
+            font-size: 33px;
+        }
+    }
+    h3 {
+        @include ordi {
+            font-size: 25px;
+        }
+
+    }
+
+    h4 {
+        @include ordi {
+            font-size: 23px;
+        }
+    }
+    li, p, span {
+        @include ordi {
+            font-size: 17px;
+        }
+    }
+}

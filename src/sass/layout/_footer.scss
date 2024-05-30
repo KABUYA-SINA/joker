@@ -1,0 +1,28 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.foot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: $black-color;
+    gap: nth($gap, 1);
+    width: 100%;
+    height: 70px;
+    @include ordi{
+        flex-direction: row;
+        gap: nth($gap, 3);
+    }
+    & .footer-box{
+        display: flex;
+        align-items: center;
+        gap: nth($gap, 2);
+        a {
+            color: $white-color;
+        }
+    }
+    & .footer-p{
+        color: $white-color;
+    }
+}

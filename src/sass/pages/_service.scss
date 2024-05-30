@@ -1,0 +1,22 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.service {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(2, calc(150px / 2 * 3));
+    grid-gap: 10px;
+    justify-content: center;
+    @include tablet{
+        grid-template-columns: repeat(2, 180px);
+        grid-template-rows: repeat(2, calc(180px / 2 * 3));
+    }
+    @include ordi {
+        grid-template-columns: repeat(4, 200px);
+        grid-template-rows: repeat(4, calc(200px / 2 * 3));
+    }
+    @include largeOrdi{
+        grid-template-columns: repeat(4, 250px);
+        grid-template-rows: repeat(4, calc(250px / 2 * 3));
+    }
+}

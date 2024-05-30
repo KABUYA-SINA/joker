@@ -1,0 +1,8 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.text{
+    display: flex;
+    flex-direction: column;
+    gap: nth($gap, 4);
+}

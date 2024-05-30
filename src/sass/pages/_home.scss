@@ -1,0 +1,14 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+
+.main-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: nth($margin, 2) 0;
+    @include ordi {
+        margin: nth($margin, 4)*3.5 0;
+    }
+}

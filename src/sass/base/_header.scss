@@ -1,0 +1,17 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.head{
+    & .logo{
+        h1{
+            @include ordi{
+                font-size: 35px;
+            }
+        }
+    }
+    span, p{
+        @include ordi{
+            font-size: 17px;
+        }
+    }
+}

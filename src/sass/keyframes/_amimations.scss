@@ -1,0 +1,14 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+@keyframes anim {
+    to {
+        width: 100%;
+    }
+}
+
+@-webkit-keyframes anim {
+    to {
+        width: 100%;
+    }
+}
