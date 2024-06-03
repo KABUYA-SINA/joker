@@ -3,15 +3,20 @@ import images from '../data/images';
 import Cards from '../components/Cards';
 import '../sass/pages/_service.scss';
 
+interface ImagesType{
+    id: string ,
+    cover: string,
+    alt: string
+}
 
 const Service: React.FC  = () => {
 
-    const [data, setData] = useState<Array<any>>([]);
+    const [data, setData] = useState<Array<ImagesType>>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     let hasFlipped: boolean = false;
-    let firstCard: HTMLDivElement|null, secondCard: HTMLDivElement|null; 
     let lockBoard: boolean = false;
+    let firstCard: HTMLDivElement|null, secondCard: HTMLDivElement|null;
 
     useEffect(() => {
         setIsLoading(true);
@@ -20,16 +25,15 @@ const Service: React.FC  = () => {
     }, [])
 
     //Duplicate cards
-    const duplicatedArray = (anArray:  string[]) =>{
-        let doubleArray:  Array<any> = []
+    const duplicatedArray = (anArray:  ImagesType[]) =>{
+        let doubleArray:  Array<ImagesType> = []
         doubleArray.push(...anArray);
         doubleArray.push(...anArray);
         return doubleArray;
-
     }
 
     //shuffle cards
-    const mixedCards = (arrayToMix: string[]) =>{
+    const mixedCards = (arrayToMix: ImagesType[]) =>{
         return arrayToMix.map((a) =>({ sort: Math.random(), value: a}))
         .sort((a, b) => a.sort - b.sort)
         .map((a) => a.value);
@@ -38,14 +42,48 @@ const Service: React.FC  = () => {
     let allImages = duplicatedArray(data);
     allImages = mixedCards(allImages);
 
-    function handleResetBoard () {
+    const handleResetBoard = () => {
         [hasFlipped, lockBoard] = [false, false];
         [firstCard, secondCard] = [null, null];
     }
 
+    //check match
+    const handleCheck = () => {
+        let isMacthed = firstCard?.dataset.value === secondCard?.dataset.value;
+        isMacthed ? disableCards() : unflipCards()
+
+    }
+
+    //remove event
+    const disableCards = () => {
+        firstCard?.removeEventListener('click', handleClick);
+        secondCard?.removeEventListener('click', handleClick);
+        firstCard?.classList.add('matched');
+        secondCard?.classList.add('matched');
+        const cardNotFinded = document.querySelectorAll('.card:not(.matched)');
+        if (cardNotFinded.length === 0) {
+                const winner = setTimeout(() => {
+                alert('Bravo, vous avez gagné 🫵');
+            }, 500)
+            return () => clearTimeout(winner);
+        }
+        handleResetBoard();
+    }
+
+    //flip card
+    const unflipCards = () => {
+        lockBoard = true;
+        const flippedCard = setTimeout(() => {
+            firstCard?.classList.remove('flip');
+            secondCard?.classList.remove('flip');
+            handleResetBoard();
+            return;
+        }, 1500)
+        return () => clearTimeout(flippedCard);
+    }
+
     //Handle event on click
     const handleClick = (e:React.BaseSyntheticEvent | any) => {
-        //: React.BaseSyntheticEvent
         e.preventDefault();
         if(lockBoard){return;};
         if(e.target.parentElement === firstCard){return};
@@ -60,29 +98,7 @@ const Service: React.FC  = () => {
             firstCard = parentTargetEvent;
         }else{
             secondCard = parentTargetEvent;
-            if(firstCard?.dataset.value === secondCard.dataset.value){
-                firstCard?.removeEventListener('click', handleClick);
-                secondCard.removeEventListener('click', handleClick);
-                firstCard?.classList.add('matched');
-                secondCard.classList.add('matched');
-                const cardNotFinded = document.querySelectorAll('.card:not(.matched)');
-                if (cardNotFinded.length === 0) {
-                     const winner = setTimeout(() => {
-                        alert('Bravo, vous avez gagné 🫵');
-                    }, 500)
-                    return () => clearTimeout(winner);
-                }
-                handleResetBoard();
-            }else{
-                lockBoard = true;
-                const flippedCard = setTimeout(() => {
-                    firstCard?.classList.remove('flip');
-                    secondCard?.classList.remove('flip');
-                    handleResetBoard();
-                    return;
-                }, 1500)
-                return () => clearTimeout(flippedCard);
-            }
+            handleCheck();
         }
     }
 
