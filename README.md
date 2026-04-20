@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# 🃏 Joker — Memory Game 🎭
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and Tsx.
+Jeu de mémoire interactif développé en React.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Description
 
-### `npm start`
+**Joker** est un jeu de memory card développé en React.
+Le joueur doit retourner des cartes et retrouver les paires identiques.
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Le projet met en avant la gestion d’état, la logique de jeu et la manipulation du DOM via React.
 
-The page will reload when you make changes.
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🎯 Objectifs du projet
 
-Launches the test runner in the interactive watch mode.
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Développer un jeu interactif en React
+* Implémenter une logique de memory game
+* Gérer les états et interactions utilisateur
+* Manipuler des événements de clic
+* Créer une expérience ludique et responsive
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Technologies utilisées
 
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
+* React
+* TypeScript
+* JavaScript 
+* SASS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ⚙️ Fonctionnalités
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* 🎴 Génération de cartes mémoire
+* 🔄 Mélange aléatoire des cartes
+* 👆 Interaction utilisateur (flip cards)
+* 🧠 Détection des paires
+* 🎉 Message de victoire
+* ⛔ Blocage des actions pendant les animations
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🧠 Logique du jeu
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Duplication des cartes pour créer les paires
+* Mélange aléatoire du deck
+* Comparaison de deux cartes sélectionnées
+* Vérification des correspondances
+* Gestion des états (flip, match, reset board)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 💡 Concepts React utilisés
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* useState
+* useEffect
+* Manipulation d’état local
+* Rendu conditionnel
+* Gestion d’événements
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📈 Compétences développées
 
-### Analyzing the Bundle Size
+* Logique de jeu (game development basics)
+* Gestion d’état complexe en React
+* Interaction utilisateur avancée
+* Manipulation du DOM via React
+* Organisation d’un composant intelligent
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📂 Structure du projet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+📁 joker/
+ ├── 📁 styles/css
+ ├── 📁 public/
+ ├── 📁 src/
+       ├── 📁 components/
+       ├── 📁 pages/
+       ├── 📁 services/
+       ├── 📁 asstes/
+       ├── 📁 data/
+       ├── 📁 sass/
+  └── 📄 App.js
+  └── 📄 index.js
+└── 📄 Readme.md
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🌐 Démo
 
-### Deployment
+👉 https://kabuya-sina.github.io/joker/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
+## 👨‍💻 Auteur
 
-### `npm run build` fails to minify
+**Sina Kabuya**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* GitHub : https://github.com/KABUYA-SINA
+* Portfolio : https://kabuya-sina.github.io/Portfolio-SK/
+
+---
